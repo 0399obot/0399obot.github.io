@@ -1,1 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nulis Online</title>
+    <meta name="description" content="Cocok buat kamu yang males nulis tugas meringkas di google classroom.">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="asset/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+   
+
+    <div class="card">
+        <header class="card-header">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="/">
+                        </a>
+                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            <p class="card-header-title">
+                Random Play Music
+            </p>
+            <button class="card-header-icon" aria-label="more options">
+                <span class="icon">
+                    <a href="https://Wa.me/+6282324538303"><i class="far fa-paper-plane" aria-hidden="true"></i></a>
+                </span>
+            </button>
+        </header>
+
+    </div>
+</div>
+                    <div class="card-content">
+                        <div class="content">
+                            <label class="label"for="font">Pilih Font</label>
+                            <select class="form-control" id="font" onchange="localStorage.setItem('fontIndex', this.value);setup()"></select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="label"for="font">Pilih Kertas</label>
+                            <select class="form-control" id="book" onchange="localStorage.setItem('bookIndex', this.value);setup()"></select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="label" for="date">Hari/Tanggal/Bulan/Tahun</label>
+                                <input type="text" class="form-control" id="date" oninput="txtDate = this.value" placeholder="Senin, 01 Januari 2021">
+
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="label" for="name">Nama</label>
+                                <input type="text" class="form-control" id="name" oninput="txtName = this.value" placeholder="Nama : Setiaji.id">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="label"for="name">Kelas / NIM</label>
+                                <input type="text" class="form-control" id="kelas" oninput="txtKelas = this.value" placeholder="Kelas : XI">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label class="label"for="name">Mapel/Absen</label>
+                                <input type="text" class="form-control" id="fakultas" oninput="txtFakultas = this.value" placeholder="Mapel : TBSM, Absen : XXX">
+                            </div>
+                        </div>
+                        <div class="control">
+                            <div class="form-group">
+                                <label class="label" for="comment">Teks :</label>
+                                <textarea class="textarea" placeholder="Masukkan teks yang akan ditulis.." name="tulisan" id="content" rows="10" oninput="txtContent = this.value" placeholder="masukkan text kamu disini"required></textarea>
+                            </div>
+                            <div class="form-group">
+                   <br>                                                       <button class="button is-link" type="submit"onclick="downloadCanvas(document.getElementById('defaultCanvas0'), 'Setaiji.png')">Unduh Hasilnya</button>
+                                                                                <button class="button is-link is-light" type="button"onclick="javascript:eraseText();">Hapus Semua</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column is-6">
+        <p class="card-header-title">
+            Gambar
+        </p>
+        <br>
+        <div class="card">
+            <pre class="wp-block-code" aria-describedby="shcb-language-2" data-shcb-language-name="HTML, XML" data-shcb-language-slug="xml"><div>
+                <code class="hljs language-xml"><span class="hljs-tag">
+                    <main class="paper-container"></main>
+                </pre>
+
+                </div>
+            </div>
+
+            </div>
+        </section>
+
+
+        <!-- End Main -->
+
+        
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.id.min.js" integrity="sha512-zHDWtKP91CHnvBDpPpfLo9UsuMa02/WgXDYcnFp5DFs8lQvhCe2tx56h2l7SqKs/+yQCx4W++hZ/ABg8t3KH/Q==" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            function eraseText() {
+                $("#date").val('');
+                $("#name").val('');
+                $("#kelas").val('');
+                $("#content").val('');
+
+                txtDate = '';
+                txtName = '';
+                txtFakultas = '';
+                txtKelas = '';
+                txtContent = '';
+            }
+
+            function parseDate(input) {
+                let parts = input.split('/');
+                return new Date(parts[2], parts[1]-1, parts[0]);
+            }
+
+            function getName(day) {
+                if (day == 0) return 'Minggu';
+                else if (day == 1) return 'Senin';
+                else if (day == 2) return 'Selasa';
+                else if (day == 3) return 'Rabu';
+                else if (day == 4) return 'Kamis';
+                else if (day == 5) return 'Jumat';
+                return 'Sabtu';
+            }
+
+            $('#detpiker input').datepicker({
+                format: "dd/mm/yyyy",
+                todayBtn: "linked",
+                language: "id",
+                autoclose: true,
+
+            }).on('changeDate', function (ev) {
+                const d = parseDate($(this).val());
+                txtDate = getName(d.getDay()) + ", " + $(this).val();
+            });;
+        </script>
+
+        <script src="https://jnckmedia.com/assets/libs/jquery-knob/jquery.knob.min.js"></script>
+
+
+        <script src="https://jnckmedia.com/assets/js/app.min.js"></script>
+
+        <script type='text/javascript'>
+            function downloadJSAtOnload() {
+                var e = document.createElement("script"); e.src = "https://cdn.jsdelivr.net/gh/Arlina-Design/quasar@master/arlinablock.js",
+                document.body.appendChild(e)}window.addEventListener?window.addEventListener("load", downloadJSAtOnload, !1): window.attachEvent?window.attachEvent("onload", downloadJSAtOnload): window.onload = downloadJSAtOnload;
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+        <script>
+            let bg, font, paper, margin, gap, fontsize = 16;
+            let txtDate = '',
+            txtName = '',
+            txtFakultas = '',
+            txtKelas = '',
+            txtContent = '';
+
+            let fonts = [{
+                'index': 0,
+                'name': 'HandwritingCR 2',
+                'file': 'HandwritingCR-2.ttf'
+            },
+                {
+                    'index': 1,
+                    'name': 'Gloria Hallelujah',
+                    'file': 'GloriaHallelujah-Regular.ttf'
+                },
+                {
+                    'index': 2,
+                    'name': 'Zahraaa',
+                    'file': 'Zahraaa.ttf'
+                },
+                {
+                    'index': 3,
+                    'name': 'Shadows Into Light',
+                    'file': 'ShadowsIntoLight-Regular.ttf'
+                },
+                {
+                    'index': 4,
+                    'name': 'My Handwriting',
+                    'file': 'My_handwriting.ttf'
+                },
+                {
+                    'index': 5,
+                    'name': 'My Hands Are Holding You',
+                    'file': 'MyHandsareHoldingYou.ttf'
+                },
+                {
+                    'index': 6,
+                    'name': 'Convered By Your Grace',
+                    'file': 'Convered-By-Your-Grace.ttf'
+                },
+                {
+                    'index': 7,
+                    'name': '99% Hand Writting',
+                    'file': '99HandWritting.ttf'
+                },
+                {
+                    'index': 8,
+                    'name': 'And This Happened',
+                    'file': 'And-This-Happened.ttf'
+                },
+                {
+                    'index': 9,
+                    'name': 'AS Melanie Handwritting',
+                    'file': 'ASMelanieHandwritting.ttf'
+                },
+                {
+                    'index': 10,
+                    'name': 'Edoms Handwritting Normal',
+                    'file': 'Edoms-Handwritting-Normal.ttf'
+                },
+                {
+                    'index': 11,
+                    'name': 'Kempton Demo Handwritting',
+                    'file': 'Kempton-Demo-Handwritting.ttf'
+                },
+                {
+                    'index': 12,
+                    'name': 'Michelle Handwritting',
+                    'file': 'michellehandwritting.ttf'
+                },
+                {
+                    'index': 13,
+                    'name': 'Nadeznas Handwritting',
+                    'file': 'Nadeznas-Handwritting.ttf'
+                },
+                {
+                    'index': 14,
+                    'name': '212 Baby Girl',
+                    'file': '212BabyGirl.otf'
+                },
+                {
+                    'index': 15,
+                    'name': '212 Leahlee Sans',
+                    'file': '212LeahleeSans.ttf'
+                },
+                {
+                    'index': 16,
+                    'name': 'A Calling Font D by 7N Types',
+                    'file': 'ACallingFontDby7NTypes.otf'
+                },
+                {
+                    'index': 17,
+                    'name': 'A Casual Handwritten Pen Noncommercial',
+                    'file': 'ACasualHandwrittenPenNoncommercial.ttf'
+                },
+                {
+                    'index': 18,
+                    'name': 'A Day in September.otf',
+                    'file': 'ADayinSeptember.otf'
+                },
+                {
+                    'index': 19,
+                    'name': 'A Little Sunshine',
+                    'file': 'Alittlesunshine.ttf'
+                },
+                {
+                    'index': 20,
+                    'name': 'Angelina',
+                    'file': 'angelina.ttf'
+                },
+                {
+                    'index': 21,
+                    'name': 'Avenir Condensed Hand',
+                    'file': 'AvenirCondensedHand.ttf'
+                },
+                {
+                    'index': 22,
+                    'name': 'Avocados',
+                    'file': 'Avocados.ttf'
+                },
+                {
+                    'index': 23,
+                    'name': 'Babby Doll',
+                    'file': 'BabyDoll.ttf'
+                },
+                {
+                    'index': 24,
+                    'name': 'Battle Of King',
+                    'file': 'BattleOfKingsRegular.ttf'
+                },
+                {
+                    'index': 25,
+                    'name': 'Bray Notes',
+                    'file': 'BrayNotes.ttf'
+                }];
+
+            let papers = [{
+                'index': 0,
+                'name': 'Kertas 1',
+                'file': 'foliojelas.jpg'
+            },
+                {
+                    'index': 1,
+                    'name': 'Kertas 2',
+                    'file': 'foliobiru.jpg'
+                }];
+
+            let getFontIndex = () => {
+                let fontIndex = localStorage.getItem('fontIndex');
+                if (fontIndex) {
+                    return fonts[fontIndex];
+                }
+                return fonts[0];
+            }
+
+            let getPaperIndex = () => {
+                let paperIndex = localStorage.getItem('bookIndex');
+                if (paperIndex) {
+                    return papers[paperIndex];
+                }
+                return papers[0];
+            }
+
+            // canvas
+            function preload() {}
+
+            function setup() {
+                // ukuran asli gambar 300x441
+                createCanvas(300 * 2, 441 * 2);
+                bg = loadImage('img/' + getPaperIndex().file);
+                font = loadFont('fonts/' + getFontIndex().file);
+
+                textFont(font);
+                textSize(fontsize);
+            }
+
+            function draw() {
+                // fix_dpi();
+                background(bg);
+                if (getPaperIndex().index === 0 || getPaperIndex().index === 1) {
+                    margin = 20;
+                    if (getPaperIndex().index === 1) {
+                        fill(0, 0, 0, 300);
+                    } else {
+                        fill(0, 0, 0, 200);
+                    }
+
+                    translate(margin - 8, margin * 4);
+
+                    if (txtName && txtKelas && !txtFakultas) {
+                        text(txtName, 0, -20);
+                        text(txtKelas, 0, 0);
+                    } else if (txtName && !txtKelas && txtFakultas) {
+                        text(txtName, 0, -20);
+                        text(txtFakultas, 0, 0);
+                    } else if (txtName && !txtKelas && !txtFakultas) {
+                        text(txtName, 0, 0);
+                    } else if (txtName && txtKelas && txtFakultas) {
+                        text(txtName, 0, -40);
+                        text(txtKelas, 0, -20);
+                        text(txtFakultas, 0, 0);
+                    }
+
+                    text(txtDate, 450, 0);
+                    translate(0, margin + 7);
+
+                    text(txtContent, 0, 0, 580 /*, 800 */);
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', (e) => {
+                let fontSelectEl = document.getElementById('font');
+                let fontSelectOptionTemplate = (index, name) => {
+                    let _selected = (index == getFontIndex().index) ? 'selected': '';
+                    return `<option value="${index}" ${_selected}>${name}</option>`;
+                }
+                let _temp = '';
+                fonts.forEach((font, index) => {
+                    _temp += fontSelectOptionTemplate(index, font.name);
+                });
+                fontSelectEl.innerHTML = _temp;
+            });
+
+            document.addEventListener('DOMContentLoaded', (e) => {
+                let paperSelectEl = document.getElementById('book');
+                let paperSelectOptionTemplate = (index, name) => {
+                    let _selected = (index == getPaperIndex().index) ? 'selected': '';
+                    return `<option value="${index}" ${_selected}>${name}</option>`;
+                }
+                let _temp = '';
+                papers.forEach((paper, index) => {
+                    _temp += paperSelectOptionTemplate(index, paper.name);
+                });
+                paperSelectEl.innerHTML = _temp;
+            });
+        </script>
+        <script>
+            function downloadCanvas(c, filename) {
+                var lnk = document.createElement('a'),
+                e;
+                lnk.download = filename
+                lnk.href = c.toDataURL();
+                if (document.createEvent) {
+                    e = document.createEvent("MouseEvents");
+                    e.initMouseEvent("click", true, true, window,
+                        0, 0, 0, 0, 0, false, false, false,
+                        false, 0, null);
+                    lnk.dispatchEvent(e);
+                } else if (lnk.fireEvent) {
+                    lnk.fireEvent("onclick");
+                }
+            }
+
+            function fix_dpi() {
+                let canvas = document.getElementById('defaultCanvas0');
+                let dpi = window.devicePixelRatio;
+                let style = {
+                    height() {
+                        return +getComputedStyle(canvas).getPropertyValue('height').slice(0, -2);
+                    },
+                    width() {
+                        return +getComputedStyle(canvas).getPropertyValue('width').slice(0, -2);
+                    }
+                }
+                canvas.setAttribute('width', style.width() * dpi);
+                canvas.setAttribute('height', style.height() * dpi);
+            }
+        </script>
+        <script>
+
+            // This anonymous function can be inserted anywhere
+            // (eg. within a <script> tag or anywhere in an existing .js file or its own file)
+            (navDuty => {
+                const sideNav = document.getElementById('sideNav');
+                const closeNavBtn = document.querySelector('.closeBtn');
+                const toggleNavBtn = document.querySelector('.toggleNav');
+                const pageOverlay = document.querySelector('.page__overlay');
+
+                // Nav listeners
+                closeNavBtn.addEventListener('click', toggleNav);
+                toggleNavBtn.addEventListener('click', toggleNav);
+                pageOverlay.addEventListener('click', toggleNav);
+                // Nav funtion
+                function toggleNav() {
+                    sideNav.classList.toggle('open');
+                };
+
+                // (on mobile) close nav menu when link is clicked
+                // this is useful on mobile when clicking an anchor tag on the current page (eg. index.html#last-section)
+                let navItems = document.querySelectorAll(".nav__item");
+                for (var i = 0; i < navItems.length; i++) {
+                    navItems[i].addEventListener('click', function (event) {
+                        toggleNav();
+                    });
+                }
+            })();
+
+
+            //non related
+            (stickyNav => {
+                const button = document.querySelector('button');
+                const onOffHTML = document.querySelector('.sticky-on-off');
+                const on = '<strong>On</strong>';
+                const off = '<strong>Off</strong>';
+                const navWrapper = document.querySelector('.nav-wrapper');
+
+                button.addEventListener('click', toggleStickyNav => {
+                    navWrapper.classList.toggle('sticky-nav');
+                    (navWrapper.classList.contains('sticky-nav') ? onOffHTML.innerHTML = on: onOffHTML.innerHTML = off);
+                });
+
+            })();
+
+        </script>
+        <!-- Global Init -->
+        <script src="assets/js/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+        <script>
+            swal({
+                title: "Selamat Datang di Website Sederhana ini",
+                html: `Website Ini Dibuat Oleh : <a rel="nofollow" href="https://armsedu.com/" target="_parent">Setiaji.id</a><br>Instagram : <a rel="nofollow" href="https://www.instagram.com/5etiaji.id" target="_parent">@5etiaji.id</a><br>Jadi jangan di salah gunakan</a><br><br>Gunakan Website Ini Sebaik Mungkin Ya !!`,
+                position: "central",
+                backdrop: "#00FFF",
+                background: "#fff",
+                allowOutsideClick: true,
+                allowEscapeKey: true,
+                allowEnterKey: true,
+                showConfirmButton: true,
+                showCancelButton: false,
+                confirmButtonText: 'Siaap-!!',
+                timer: 10000
+            })
+        </script><!-- Start Footer -->
+        <footer class="footer">
+            <div class="content has-text-centered">
+                <p>
+                    Copyright<span class="has-text-danger">&hearts;</span> by <strong><a href="https://indicategray.com/">Setiaji.id</a></strong>
+                </p>
+            </div>
+        </footer>
+        <!-- End Footer -->
+    </body>
+</html>
