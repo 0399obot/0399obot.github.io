@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Music</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Cocok buat kamu yang sedang mumet/galau.">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://indicategray.com/nulis/asset/css/bulma.min.css">
+    <link rel="stylesheet" href="https://indicategray.com/nulis/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://indicategray.com/nulis/css/bootstrap.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/AudioPlayer.css">
+    <style>
+
+        #player {
+            position: relative;
+            max-width: 700px;
+            height: 500px;
+            border: solid 1px gray;
+        }
+        #background-video {
+            height: 93vh;
+            width: 100vw;
+            object-fit: cover;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+        font {
+            text-shadow: #000 0px 0px 3px;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+
+    <center>
+
+        <!--Who Im?-->
+        <video id="background-video" src="https://github.githubassets.com/images/modules/site/home/globe-500.h264.mp4" autoplay="" loop="" muted="" poster="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=">
+            <source src="https://github.githubassets.com/images/modules/site/home/globe-500.h264.mp4" type="video/mp4">
+        </video>
+    </style>
+</head>
+
+<body
+    alink="#ee0000" link="#0000ee" vlink="#551a8b">
+   <strong>
+    <div class="card">
+        <header class="card-header">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="container">
+                    <div class="navbar-brand">
+           <font color="white"> Jadilah cahaya, walau tak tersentuh, selalu menerangi. Jadilah angin, walau tak tampak, selalu memberi kesejukan. Jadilah sahabat sejati, walau tak bersama menjalani hari, selalu menjaga hati.</font>
+            
+                    </div>
+                </div>
+            </nav>
+         
+        </header>
+
+    </div>
+</div>
+<div class="card-content">
+    <!-- Audio player container-->
+    <div id='player'></div>
+
+    <!-- Audio player js begin-->
+    <script src="js/AudioPlayer.js"></script>
+
+    <script>
+        // test image for web notifications
+        var iconImage = null;
+
+        AP.init({
+            container: '#player', //a string containing one CSS selector
+            volume: 0.7,
+            autoPlay: true,
+            notification: false,
+            playList: [{
+                'icon': iconImage, 'title': 'Backstreet Boys - I Want It That Way', 'file': 'https://www.wskmedia.com/mp3/IWantItThatWay.mp3'
+            },
+                {
+                    'icon': iconImage, 'title': '7 years - lukas graham', 'file': 'https://www.wskmedia.com/mp3/7years.mp3'
+                },
+               {
+                    'icon': iconImage, 'title': 'mood', 'file': 'https://www.wskmedia.com/mp3/mood.mp3'
+                },
+              {
+                    'icon': iconImage, 'title': 'The Chainsmokers - Dont Let Me Down', 'file': 'https://www.wskmedia.com/mp3/DontLetMeDown.mp3'
+                },
+                
+                {
+                    'icon': iconImage, 'title': 'Aku Seng Duwe Ati', 'file': 'https://laneadavis.com/uploads/AKU SING DUWE ATI.mp3'
+                },
+                              {
+                    'title': '',
+                },
+
+            ]
+        });
+    </script>
+</div>
+</div>
+
+<div class="column is-1">
+<div class="card">
+
+<footer>
+<div class="content has-text-centered">
+<strong><p>
+Copygriht<span class="has-text-danger">&hearts;</span> By <strong><a href="https://indicategray.com/
+">Setiaji.id</a></strong>
+</p>
+</div>
+</footer>
+
+</body>
+</html>
