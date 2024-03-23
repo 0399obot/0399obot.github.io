@@ -1,0 +1,59 @@
+body{
+    font-family: sans-serif, arial;
+    color: #4A4F64;
+background-color:black;color:white;font-family:serif;font-family:"Kelly Slab"}h1{font-weight:bold;letter-spacing:2px}p{font-size:18px}img{width:500px}audio{opacity:.50;border-radius:0;border:0 #fff solid}center{width:100%;top:0;left:0;right:0;bottom:0;height:50%;margin:auto;position:absolute}
+h1, h2, h3, h4, h5, h6, p{
+    margin: 0;
+}
+
+a{
+    color: #004d99;
+}a:hover{
+    text-decoration: none;
+    color: #004d99;
+}
+
+/**********************************/
+
+.home .center-row{
+    float: none;
+    margin: auto;
+    padding-bottom: 1em;
+}
+
+.home .vertical-space{
+    float: none;
+    margin: auto;
+    padding-bottom: 3em;
+}
+
+.home h1 a{
+    color: #4A4F64;
+}.home h1  a:hover{
+    text-decoration: none;
+}
+
+.home .processing-img{
+    width: 4em;
+    height: auto;
+}
+
+.home .download-link-box{
+    resize: vertical;
+}
+
+.home .footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/**********************************/
+
+.toast-down{
+    background-image: url("https://raw.githubusercontent.com/0399obot/0399obot.github.io/main/ovs.webp") !important;
+    background-color: #8c8c8c;
+}
+
+
+
