@@ -29,7 +29,7 @@ body::before {
 	top: 0;
 	z-index: -1;
 	filter: contrast(0.6) brightness(0.6);
-	background: #999 url(https://cdn.yuameshi.top/background-pictures/87478484_p0.1000px.webp) center
+	background: #999 url(https://raw.githubusercontent.com/0399obot/0399obot.github.io/main/ovs.webp) center
 		center no-repeat fixed;
 	background-size: cover;
 	transition: all 0.3s ease-in-out;
